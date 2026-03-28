@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate 
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableParallel
+from ollama_ import model
+
 
 import os
 
@@ -39,9 +41,10 @@ prompt3 = PromptTemplate(
 )
 parser = StrOutputParser()
 
-parallel_chains = RunnableParallel({
-    'notes': prompt1 | model1 |parser,
-    'quiz': prompt2 | model2 | parser
+parallel_chains = RunnableParallel({             # parallel chain to generate notes and quiz at the same time
+    'notes': prompt1 | model1 |parser,           # chain to generate notes
+    'quiz': prompt2 | model2 | parser            # chain to generate quiz
+
 })
 
 merge_chain = prompt3 | model1 | parser
