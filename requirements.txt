@@ -1,0 +1,11 @@
+langchain
+langchain-community
+langchain-core
+langchain-ollama
+langchain-google-genai
+python-dotenv
+pydantic
+numpy
+scikit-learn
+streamlit
+pypdf
